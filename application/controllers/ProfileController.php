@@ -1,11 +1,21 @@
 <?php
+require_once dirname(dirname(__FILE__)).'/includes/Cookie.class.php';
 
 class ProfileController extends Zend_Controller_Action
 {
 
+	private $user;
+	private $profile;
+	private $id;
+	
     public function init()
     {
-        /* Initialize action controller here */
+        Cookie::startSession();
+    	$this->user = Cookie::userLoggedIn();
+    	
+    	$this->profile = new Application_Model_Profile($this->user->access_token);
+    	
+    	$this->id = $this->getRequest()->getParam('id');
     }
 
     public function indexAction()
@@ -15,7 +25,9 @@ class ProfileController extends Zend_Controller_Action
 
     public function viewAction()
     {
-        // action body
+       $json = $this->profile->getProfileById($this->id);
+       $data = json_decode($json, true);
+       $this->view->data = $data;
     }
 
     public function followAction()

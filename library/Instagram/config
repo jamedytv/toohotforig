@@ -1,0 +1,4 @@
+{"client_id" : "53f91d331bab4688b8bed7ccb39a35b0",
+ "client_secret" : "bd33032e91c44202b3a8b69a0c6a199d",
+ "grant_type" : "authorization_code",
+ "redirect_uri" : "http://www.toohotforig.com/authenticate"}
