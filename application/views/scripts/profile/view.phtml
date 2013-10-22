@@ -1,7 +1,21 @@
 
 <br /><br />
+<br>
+<br>
+<br>
+<br>
 <div class="container-fluid">
-	<pre>
-	<?php print_r($this->data);?>
-	</pre>
+	<div class="row-fluid">
+		<div class="span12">
+			<?php foreach($this->data['data'] as $profileinfo){
+					echo '<div class="well well-small pull-right">'.
+						 '<a href="http://www.toohotforig.com/view/profile/'.$profileinfo['user']['id'].'">'.
+						 '<img src="'.$profileinfo['images']['standard_resolution']['url'].'" width="200px" class="img-polaroid">'.
+						 '</a></div>';
+			}?>
+			</div>
+	</div>
+<pre>
+<?php print_r($this->data['data']);?>
+</pre>
 </div>
