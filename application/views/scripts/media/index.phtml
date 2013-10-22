@@ -1,5 +1,16 @@
-<?php var_dump($this->data);?>
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Media</b> and script/action name <b>index</b></p>
+<br>
+<br>
+<br>
+<br>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<?php foreach($this->data['data'] as $userinfo){
+					echo '<div class="well well-small pull-right"><img src="'.$userinfo['images']['standard_resolution']['url'].'" width="200px" class="img-polaroid"></div>';
+			}?>
+			</div>
+	</div>
+<pre>
+<?php print_r($this->data['data']);?>
+</pre>
 </div>
