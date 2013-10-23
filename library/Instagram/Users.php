@@ -7,7 +7,7 @@ class Instagram_Users extends Instagram_Curl{
 	}
 	
 	public function getUserByUserId($user_id){
-		return $this->makeRequest('get', 'recent_user_media', array('id' => $user_id));
+		return $this->makeRequest('get', 'recent_user_media', array('id' => $user_id, 'count' => '30'));
 	}
 	
 	public function getRecentMediaByUserId($user_id){

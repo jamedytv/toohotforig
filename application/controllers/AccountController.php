@@ -5,11 +5,12 @@ require_once dirname(dirname(__FILE__)).'/includes/Cookie.class.php';
 class AccountController extends Zend_Controller_Action
 {
 
-    private $account;
-    private $user;
+    private $account = null;
+
+    private $user = null;
 
     public function init()
-    {   
+    {
         $this->account = new Application_Model_Account();
  
     }
@@ -31,6 +32,13 @@ class AccountController extends Zend_Controller_Action
     	Cookie::startSession();
     	$this->user = Cookie::userLoggedIn();
     }
+    
+    public function logoutAction()
+    {
+    	Cookie::destroySession();
+    	$this->redirect('http://www.instagram.com/accounts/logout/');
+    	exit(0);
+    }
 
     public function loginAction()
     {
@@ -38,7 +46,7 @@ class AccountController extends Zend_Controller_Action
     }
 
     public function authenticateAction()
-    { 
+    {
         //Check for and handle error from code request.
          
         $error = $this->_request->getQuery('error');
@@ -76,15 +84,7 @@ class AccountController extends Zend_Controller_Action
         	//If user has blocked the application fail gracefully.
         	//Maybe a blocked application page.
         	$this->redirect('http://www.toohotforig.com/login/error');
-        }
+        
+    	}
     }
 }
-
-
-
-
-
-
-
-
-

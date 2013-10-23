@@ -17,17 +17,21 @@ class Instagram_Curl{
 		$this->curl_params = array('access_token'  => $this->access_token);
 	}
 	
-	public function makeRequest($request_type, $resource, $params=array()){
+	public function makeRequest($request_type, $resource, $params=array('id'=>DEFAULT_USER_ID, 'count'=>'30')){
 		
 		switch($resource){
 			case "feed":
 				$this->curl_client->setUri(self::FEED);
+				unset($params['id']);
+				$this->curl_params = array_merge($this->curl_params, $params);
 				break;
 			case "users":
 				$this->curl_client->setUri(self::USERS);
 				break;
 			case "recent_user_media":
 				$this->curl_client->setUri(preg_replace('/user_id/', $params['id'], self::RECENT_USER_MEDIA));
+				unset($params['id']);
+				$this->curl_params = array_merge($this->curl_params, $params);
 				break;
 			case "like_media":
 				$this->curl_client->setUri(self::LIKE_MEDIA);
