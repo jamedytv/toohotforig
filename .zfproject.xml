@@ -28,6 +28,7 @@
           <actionMethod actionName="remove"/>
           <actionMethod actionName="login"/>
           <actionMethod actionName="authenticate"/>
+          <actionMethod actionName="logout"/>
         </controllerFile>
         <controllerFile controllerName="Media">
           <actionMethod actionName="index"/>
@@ -84,6 +85,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Media">
             <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Account">
+            <viewScriptFile forActionName="logout"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

@@ -9,8 +9,8 @@ class IndexController extends Zend_Controller_Action
 
     public function init()
     {
-        Cookie::startSession();
-    	$this->user = Cookie::userLoggedIn();
+        /* Cookie::startSession();
+    	$this->user = Cookie::userLoggedIn(); */
     	
     	$this->media = new Application_Model_Media();
     }
