@@ -1,12 +1,4 @@
 
-    /* GLOBAL STYLES
-    -------------------------------------------------- */
-    /* Padding below the footer and lighter body text */
-
-    body {
-      padding-bottom: 40px;
-      color: #5a5a5a;
-    }
 
 
 
@@ -237,4 +229,8 @@
         line-height: 1.5;
       }
 
+    }
+    .card{
+		height:400px;
+    	overflow:hidden;
     }
