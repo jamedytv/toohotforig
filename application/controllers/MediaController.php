@@ -16,9 +16,7 @@ class MediaController extends Zend_Controller_Action
 
     public function indexAction()
     {
-       $json = $this->media->getUserFeed(DEFAULT_ACCESS_TOKEN);
-       $data = json_decode($json, true);
-       $this->view->data = $data;
+       
     }
 
 

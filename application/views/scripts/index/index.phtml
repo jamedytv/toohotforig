@@ -43,14 +43,10 @@
 						 '<a href="http://www.toohotforig.com/view/profile/'.$profileinfo['user']['id'].'">'.
 						 '<img src="'.$profileinfo['images']['standard_resolution']['url'].'" width="200px" class="img-polaroid">'.
 						 '</a><br/>
-              			  <a href="http://www.toohotforig.com/view/profile/'.$profileinfo['user']['id'].'"><h4>'.$profileinfo['user']['username'].'</h4></a>
-              			  <h4>Likes: '.$profileinfo['likes']['count'].'</h4>
-              			  <!--Caption : '.nl2br($profileinfo['caption']['text']).'<br/>-->';
-					echo'<div class="well well-small span12">';
-						  foreach ($profileinfo['tags'] as $hashtag){
-						  	echo '#'.$hashtag.'<br/>';
-						  }	
-					echo '</div></div>';
+              			  <a href="http://www.toohotforig.com/view/profile/'.$profileinfo['user']['id'].'"><h5>'.$profileinfo['user']['username'].'</h5></a>
+              			  <h5>Likes: '.$profileinfo['likes']['count'].'</h5>';
+						  echo (isset($profileinfo['caption'])&&isset($profileinfo['caption']['text'])) ? $profileinfo['caption']['text'] : "" ;
+						  echo '</div>';
 			}?>
 			</div>
 	</div>
