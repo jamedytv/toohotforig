@@ -28,6 +28,7 @@ class ProfileController extends Zend_Controller_Action
        $json = $this->profile->getProfileById($this->id);
        $data = json_decode($json, true);
        $this->view->data = $data;
+       $this->view->user = $this->user;
     }
 
     public function followAction()

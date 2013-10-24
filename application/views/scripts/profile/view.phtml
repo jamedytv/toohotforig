@@ -5,6 +5,10 @@
 <br>
 <br>
 <div class="container-fluid">
+<?php 
+echo '<h2>'.$this->data['data'][0]['user']['full_name'].'</h2>'.
+	 '<h5> @'.$this->data['data'][0]['user']['username'].'</h5>';
+?>
 	<div class="row-fluid">
 		<div class="span12">
 			<?php foreach($this->data['data'] as $profileinfo){
@@ -16,6 +20,6 @@
 			</div>
 	</div>
 <pre>
-<?php print_r($this->data['data']);?>
+<?php print_r($this->data['data'][0]);?>
 </pre>
 </div>
