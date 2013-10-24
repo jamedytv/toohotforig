@@ -232,5 +232,17 @@
     }
     .card{
 		height:400px;
+		margin-bottom: 5px;
     	overflow:hidden;
+    }
+    .spacer{
+	    height:70px;
+    }
+    footer{
+		border-top: #ccc 1px solid;    
+	    height:100px;
+    }
+    .texture{
+	    background-image: url('../img/texture.png');
+	    background-repeat: repeat;
     }
