@@ -74,8 +74,6 @@ class AccountController extends Zend_Controller_Action
         		
         		Cookie::startSession();
         		Cookie::setUserSession($user);
-        		Cookie::setUserCookie($user);
-        		//Set the user browser cookie data
         		
         		$this->redirect('http://www.toohotforig.com');
         		exit(0);
