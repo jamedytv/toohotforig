@@ -7,7 +7,10 @@ class Instagram_Auth extends Instagram_Instagram{
 	}
 	
 	public function getCode(){
-		header('Location: https://api.instagram.com/oauth/authorize/?client_id='.$this->client_id.'&redirect_uri='.$this->redirect_uri.'&response_type=code');
+		header('Location: https://api.instagram.com/oauth/authorize/?client_id='.$this->client_id.
+				'&redirect_uri='.$this->redirect_uri.
+				'&response_type=code'.
+				'&scope='.implode("+", $this->scope));
 		exit(0);
 	}
 	

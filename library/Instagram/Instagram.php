@@ -10,6 +10,7 @@ class Instagram_Instagram {
 	protected $client_secret;
 	protected $grant_type;
 	protected $redirect_uri;
+	protected $scope;
 	
 	public function __construct(){
 		try {
@@ -21,6 +22,7 @@ class Instagram_Instagram {
 		$this->client_secret = $config->client_secret;
 		$this->grant_type = $config->grant_type;
 		$this->redirect_uri = $config->redirect_uri;
+		$this->scope = $config->scope;
 	}
 	
 	

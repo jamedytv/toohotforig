@@ -61,7 +61,7 @@ class AccountController extends Zend_Controller_Action
         	$user_data = json_decode($json, true);
         
         	if(array_key_exists('error_type', $user_data)){
-        		$this->redirect('http://www.toohotforig.com/login/error');
+        		$this->redirect(SITE_ROOT.'/login/error');
         		exit(0);
         	}else{
         		//store user credentials in database
@@ -75,13 +75,13 @@ class AccountController extends Zend_Controller_Action
         		Cookie::startSession();
         		Cookie::setUserSession($user);
         		
-        		$this->redirect('http://www.toohotforig.com');
+        		$this->redirect(SITE_ROOT);
         		exit(0);
         	}
         }else{
         	//If user has blocked the application fail gracefully.
         	//Maybe a blocked application page.
-        	$this->redirect('http://www.toohotforig.com/login/error');
+        	$this->redirect(SITE_ROOT.'/login/error');
         
     	}
     }
