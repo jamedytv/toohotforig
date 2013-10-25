@@ -37,17 +37,30 @@
 </div>
 <div class="spacer hidden-desktop"></div>
 <div class="container">
+<video width="260" height="260" controls>
+<source src="http://distilleryimage7.s3.amazonaws.com/c69c87de3d2811e3b34b22000aaa2162_102.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
         <div class="row">
 			                <div class="span11 offset1">
                         <?php foreach($this->data['data'] as $profileinfo){
-                                        echo '<div class="span3 well well-small card">
-                                                 <a href="http://www.toohotforig.com/view/profile/'.$profileinfo['user']['id'].'">
-                                                 <img src="'.$profileinfo['images']['standard_resolution']['url'].'" width="260px" class="img-polaroid">
-                                                 </a><br/>
-												 <a href="http://www.toohotforig.com/view/profile/'.$profileinfo['user']['id'].'">
-												 	<h5>'.$profileinfo['user']['username'].'</h5>
-												 </a>
-												 <h5>Likes: '.$profileinfo['likes']['count'].'</h5>';
+                        	              echo '<div class="span3 well well-small card">';
+                        	                     if($profileinfo['type'] == "video"){
+                        	                     	echo '<video width="260" height="260" controls>'.
+                          	                     	     '<source src="'.$profileinfo['videos']['low_resolution']['url'].'" type="video/mp4">'.
+                          	                     	     'Your browser does not support the video tag.'.
+                          	                     	     '</video>'.
+                        	                     	     '<a href="'.SITE_ROOT.'/view/profile/'.$profileinfo['user']['id'].'">';
+                        	                     }else{
+                        	                     	echo '<a href="'.SITE_ROOT.'/view/profile/'.$profileinfo['user']['id'].'">'.
+                        	                     		 '<img src="'.$profileinfo['images']['standard_resolution']['url'].'" width="260px" class="img-polaroid">';
+                        	                     }
+                                                 
+                                          echo '</a><br/>'.
+												 '<a href="'.SITE_ROOT.'/view/profile/'.$profileinfo['user']['id'].'">'.
+												 	'<h5>@'.$profileinfo['user']['username'].'</h5>'.
+												 '</a>'.
+												 '<h5>Likes: '.$profileinfo['likes']['count'].'</h5>';
                                           echo (isset($profileinfo['caption'])&&isset($profileinfo['caption']['text'])) ? $profileinfo['caption']['text'] :NULL ;
                                           echo '</div>';
                         }?>

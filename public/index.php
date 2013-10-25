@@ -28,6 +28,7 @@ ini_set('display_errors', '1');
 
 define('DEFAULT_ACCESS_TOKEN', '618555772.53f91d3.d5ca6fa057e84e62ac7242e9d7d5260f');
 define('DEFAULT_USER_ID', '618555772');
+define('SITE_ROOT', "http://www.toohotforig.com");
 
 /**Routing Info*/
 $FrontController=Zend_Controller_Front::getInstance();

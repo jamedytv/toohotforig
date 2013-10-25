@@ -68,7 +68,7 @@ class Cookie{
 			return $user;
 		} */
 		else { 
-			 header('Location: http://www.toohotforig.com/login');
+			 header('Location: '.SITE_ROOT.'/login');
 			 exit(0); 
 		}
 	}

@@ -13,7 +13,7 @@ echo '<h2>'.$this->data['data'][0]['user']['full_name'].'</h2>'.
 		<div class="span12">
 			<?php foreach($this->data['data'] as $profileinfo){
 					echo '<div class="well well-small pull-right">'.
-						 '<a href="http://www.toohotforig.com/view/profile/'.$profileinfo['user']['id'].'">'.
+						 '<a href="'.SITE_ROOT.'/view/profile/'.$profileinfo['user']['id'].'">'.
 						 '<img src="'.$profileinfo['images']['standard_resolution']['url'].'" width="200px" class="img-polaroid">'.
 						 '</a></div>';
 			}?>
