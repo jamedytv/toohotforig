@@ -1,46 +1,29 @@
+<br>
+<br>
+<br>
+<br>
 <div id="myCarousel" class="carousel slide hidden-phone">
       <div class="carousel-inner">
-        <div class="item">
-          <img src="<?= $this->baseUrl()?>/img/slide-01.jpg" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Sign up today</a>
-            </div>
-          </div>
-        </div>
         <div class="item active">
-          <img src="<?= $this->baseUrl()?>/img/slide-02.jpg" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Learn more</a>
-            </div>
-          </div>
+          <img src="<?= $this->baseUrl()?>/img/ciroc-banner.jpg" alt="">
         </div>
         <div class="item">
-          <img src="<?= $this->baseUrl()?>/img/slide-03.jpg" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
-            </div>
-          </div>
+          <img src="<?= $this->baseUrl()?>/img/hip-hop-fest-banner.png" alt="">
+        </div>
+        <div class="item">
+          <img src="<?= $this->baseUrl()?>/img/lhh_banner.png" alt="">
         </div>
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
 </div>
-</div>
+
 <div class="spacer hidden-desktop"></div>
 <div class="container">
-<video width="260" height="260" controls>
-<source src="http://distilleryimage7.s3.amazonaws.com/c69c87de3d2811e3b34b22000aaa2162_102.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+<ul class="pager">
+  <li><a href="#">Previous</a></li>
+  <li><a href="#">Next</a></li>
+</ul>
         <div class="row">
 			                <div class="span11 offset1">
                         <?php foreach($this->data['data'] as $profileinfo){
@@ -70,5 +53,9 @@ Your browser does not support the video tag.
 <?php print_r($this->data['data']);?>
 </pre>-->
 		</div>
+<ul class="pager">
+  <li><a href="#">Previous</a></li>
+  <li><a href="#">Next</a></li>
+</ul>
 </div>
 <div class="spacer"></div>

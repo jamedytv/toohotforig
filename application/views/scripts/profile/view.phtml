@@ -5,17 +5,28 @@
 <br>
 <br>
 <div class="container-fluid">
-<?php 
-echo '<h2>'.$this->data['data'][0]['user']['full_name'].'</h2>'.
-	 '<h5> @'.$this->data['data'][0]['user']['username'].'</h5>';
-?>
+<div class="media">
+              <a class="pull-left">
+                <img class="media-object" src="<?php echo $this->data['data'][0]['user']['profile_picture'];?>" width="90" height="90">
+              </a>
+              <div class="media-body">
+                <h4 class="media-heading"><?php echo $this->data['data'][0]['user']['full_name'];?></h4>
+                <?php echo '<h5> @'.$this->data['data'][0]['user']['username'].'</h5>';?>
+                <button type="button" class="btn btn-mini btn-success">Follow</button>
+              </div>
+            </div>
+<br>
+<br>
 	<div class="row-fluid">
 		<div class="span12">
 			<?php foreach($this->data['data'] as $profileinfo){
 					echo '<div class="well well-small pull-right">'.
 						 '<a href="'.SITE_ROOT.'/view/profile/'.$profileinfo['user']['id'].'">'.
 						 '<img src="'.$profileinfo['images']['standard_resolution']['url'].'" width="200px" class="img-polaroid">'.
-						 '</a></div>';
+						 '</a></br>'.
+						 '<h5>Likes: '.$profileinfo['likes']['count'].'</h5>';
+                          echo (isset($profileinfo['caption'])&&isset($profileinfo['caption']['text'])) ? $profileinfo['caption']['text'] :NULL ;
+                          echo '</div>';
 			}?>
 			</div>
 	</div>
