@@ -1,5 +1,5 @@
-{"client_id" : "53f91d331bab4688b8bed7ccb39a35b0",
- "client_secret" : "bd33032e91c44202b3a8b69a0c6a199d",
+{"client_id" : "872dd397be624bc98340366c5b077cf5",
+ "client_secret" : "4c574c0114af46e295a9cde730fb66b8",
  "grant_type" : "authorization_code",
  "redirect_uri" : "http://www.toohotforig.com/authenticate",
  "scope" : ["likes", "relationships", "comments"]}

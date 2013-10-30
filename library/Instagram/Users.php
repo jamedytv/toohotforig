@@ -18,4 +18,8 @@ class Instagram_Users extends Instagram_Curl{
 		
 	}
 	
+	public function getFollowedByUserId($user_id){
+		return $this->makeRequest('get', 'users_followed', array('id' => $user_id));
+	}
+	
 }
