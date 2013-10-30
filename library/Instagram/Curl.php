@@ -28,6 +28,11 @@ class Instagram_Curl{
 			case "users":
 				$this->curl_client->setUri(self::USERS);
 				break;
+			case "users":
+				$this->curl_client->setUri(self::USERS.'/'.$params['id'].'/follows');
+				unset($params['id']);
+				unset($params['count']);
+				break;
 			case "recent_user_media":
 				$this->curl_client->setUri(preg_replace('/user_id/', $params['id'], self::RECENT_USER_MEDIA));
 				unset($params['id']);
