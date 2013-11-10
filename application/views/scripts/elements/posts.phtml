@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="span10 offset1">
+    <?php foreach($this->data['data'] as $profileinfo){
+            echo '<div class="span3 well well-small card">';
+            if($profileinfo['type'] == "video"){
+              echo '<video width="260" height="260" controls>'.
+                   '<source src="'.$profileinfo['videos']['low_resolution']['url'].'" type="video/mp4">'.
+                   'Your browser does not support the video tag.'.
+                   '</video>'.
+                   '<a href="'.SITE_ROOT.'/view/profile/'.$profileinfo['user']['id'].'">';
+            }else{
+              echo '<a href="'.SITE_ROOT.'/view/profile/'.$profileinfo['user']['id'].'">'.
+                   '<img src="'.$profileinfo['images']['standard_resolution']['url'].'" width="260px" class="img-polaroid">';
+            }
+            echo '</a><br/>'.
+				 '<a href="'.SITE_ROOT.'/view/profile/'.$profileinfo['user']['id'].'">'.
+				 '<h5>@'.$profileinfo['user']['username'].'</h5>'.
+				 '</a>'.
+				 '<h5>Likes: '.$profileinfo['likes']['count'].'</h5>';
+            echo (isset($profileinfo['caption'])&&isset($profileinfo['caption']['text'])) ? $this->parser->handleToLinkConverter($profileinfo['caption']['text'], "instagram") :NULL ;
+            echo '</div>';
+     }?>
+  </div>
+</div>

@@ -6,9 +6,9 @@ class Application_Model_Media{
 		
 	}
 	
-	public function getUserFeed($access_token){
+	public function getUserFeed($access_token, $max_id='0'){
 		$media = new Instagram_Media($access_token);
-		return $media->getUserFeed();
+		return $media->getUserFeed($max_id);
 	}
 	
 	public function getRecentMediaByUserId($id){

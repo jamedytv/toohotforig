@@ -14,8 +14,11 @@ class Instagram_Media extends Instagram_Curl {
 		
 	}
 	
-	public function getUserFeed(){
-		return $this->makeRequest("get", "feed");
+	public function getUserFeed($max_id){
+		return $this->makeRequest("get", "feed", array('id'=>DEFAULT_USER_ID, 
+													   'count'=>'50', 
+													   'max_id'=>$max_id, 
+													   'username' => null));
 	}
 	
 }

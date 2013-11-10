@@ -28,7 +28,9 @@ ini_set('display_errors', '1');
 
 define('DEFAULT_ACCESS_TOKEN', '633656976.872dd39.be0e57e65502423598441395ed4ad121');
 define('DEFAULT_USER_ID', '633656976');
-define('SITE_ROOT', "http://www.toohotforig.com");
+define('SITE_ROOT', "http://".$_SERVER['SERVER_NAME']);
+define('FEED_USER_ID', '618555772');
+define('FEED_ACCESS_TOKEN', '618555772.872dd39.20d1b920287c4caa8251f9cd5798c49b');
 
 /**Routing Info*/
 $FrontController=Zend_Controller_Front::getInstance();
@@ -51,6 +53,13 @@ $Router->addRoute("view_profile", new Zend_Controller_Router_Route(
 		array(  'id' => DEFAULT_USER_ID,
 				'controller' => 'profile',
 				'action' => 'view'
+		)));
+
+$Router->addRoute("view_by_username", new Zend_Controller_Router_Route(
+		'/ig/:username',
+		array(  'id' => DEFAULT_USER_ID,
+				'controller' => 'profile',
+				'action' => 'view-by-username'
 		)));
 
 $Router->addRoute("follow_profile", new Zend_Controller_Router_Route(
@@ -100,7 +109,7 @@ $Router->addRoute("authorize_account", new Zend_Controller_Router_Route(
 
 $Router->addRoute("feed", new Zend_Controller_Router_Route(
 		'/feed',
-		array(  'controller' => 'media',
+		array(  'controller' => 'feed',
 				'action' => 'index'
 		)));
 

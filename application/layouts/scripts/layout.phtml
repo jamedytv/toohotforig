@@ -56,36 +56,24 @@ if (isset($this->user->username)){
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="<?php echo SITE_ROOT;?>">Too Hot For IG</a>
             <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
             <div class="nav-collapse collapse">
               <ul class="nav">
+              <li><a href="<?= SITE_ROOT; ?>"><b>HOME</b></a></li>
+              <li><a href="<?= SITE_ROOT.'/feed'; ?>"><b>IG FEED</b></a></li>
+              <li><a href="<?= SITE_ROOT.'/browse'; ?>"><b>EYE CANDY</b></a></li>
               <?php if(isset($this->user->username)&&isset($this->user->profile_picture)){
-                echo '<li class="dropdown">'.
+                echo '<li class="dropdown pull-right">'.
                   		'<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>'.strtoupper($username).'</b><b class="caret"></b></a>'.
                   		'<ul class="dropdown-menu">'.
                   			'<li class="nav-header">Account</li>'.
                     		'<li><a href="#"><img src="'.$profile_picture.'" width="30px" height="30px">  '.$username.'</a></li>'.
-                    		'<li><a href="#">View Profile</a></li>'.
-                    		'<li><a href="'.SITE_ROOT.'/logout">Log Out</a></li>'.
-                    		'<li class="divider"></li>'.
-                    		'<li class="nav-header">Nav header</li>'.
-                    		'<li><a href="#">Separated link</a></li>'.
-                    		'<li><a href="#">One more separated link</a></li>'.
+                    		'<li><a href="'.SITE_ROOT.'/logout"><b>LOG OUT</b></a></li>'.
                   		'</ul>'.
                 	'</li>';
 				}else{
-				echo '<li><a href="'.SITE_ROOT.'/login">Login</a></li>';
-				}?>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse Hot Girls!<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                  <li class="nav-header">Categories</li>
-                    <li><a href="#">At Random</a></li>
-                    <li><a href="#">By # Of Followers</a></li>
-                    <li><a href="#">By Ranking</a></li>
-                  </ul>
-                </li>
+				echo '<li><a href="'.SITE_ROOT.'/login"><b>LOGIN</b></a></li>';
+				}?> 
               </ul>
             </div><!--/.nav-collapse -->
           </div><!-- /.navbar-inner -->
@@ -93,9 +81,9 @@ if (isset($this->user->username)){
 
       </div> <!-- /.container -->
     </div><!-- /.navbar-wrapper -->
-
-
-
+<br>
+<br>
+<br>
 
 <?php echo $this->layout()->content; ?>
 

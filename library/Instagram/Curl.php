@@ -17,33 +17,67 @@ class Instagram_Curl{
 		$this->curl_params = array('access_token'  => $this->access_token);
 	}
 	
-	public function makeRequest($request_type, $resource, $params=array('id'=>DEFAULT_USER_ID, 'count'=>'30')){
+	public function makeRequest($request_type, $resource, $params=array('id'=>DEFAULT_USER_ID, 
+																		'count'=>'50', 
+																		'max_id'=>null, 
+																		'q'=>null)){
 		
 		switch($resource){
 			case "feed":
 				$this->curl_client->setUri(self::FEED);
 				unset($params['id']);
+				
+				if($params['max_id']==null){
+					unset($params['max_id']);
+				}
+				
+				if($params['username']==null){
+					unset($params['username']);
+				}
+				
 				$this->curl_params = array_merge($this->curl_params, $params);
 				break;
+				
 			case "users":
-				$this->curl_client->setUri(self::USERS);
+				$this->curl_client->setUri(self::USERS.'/search');
+				unset($params['id']);
+				
+				if($params['max_id']==null){
+					unset($params['max_id']);
+				}
+				
+				$this->curl_params = array_merge($this->curl_params, $params);
 				break;
-			case "users":
+				
+			case "user_follows":
 				$this->curl_client->setUri(self::USERS.'/'.$params['id'].'/follows');
 				unset($params['id']);
 				unset($params['count']);
 				break;
+				
 			case "recent_user_media":
 				$this->curl_client->setUri(preg_replace('/user_id/', $params['id'], self::RECENT_USER_MEDIA));
 				unset($params['id']);
+				
+				if($params['max_id']==null){
+					unset($params['max_id']);
+				}
+				
+				if($params['username']==null){
+					unset($params['username']);
+				}
+				
 				$this->curl_params = array_merge($this->curl_params, $params);
 				break;
+				
 			case "like_media":
 				$this->curl_client->setUri(self::LIKE_MEDIA);
 				break;
+				
 			case "search_user":
 				$this->curl_client->setUri(self::SEARCH_USER);
 				break;
+				
 			default:
 				return "resource not valid";
 		}

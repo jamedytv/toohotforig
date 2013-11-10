@@ -1,49 +1,18 @@
-
-<br /><br />
 <br>
 <br>
 <br>
-<br>
-<div class="container-fluid">
-<div class="media">
-              <a class="pull-left">
-                <img class="media-object" src="<?php echo $this->data['data'][0]['user']['profile_picture'];?>" width="90" height="90">
-              </a>
-              <div class="media-body">
-                <h4 class="media-heading"><?php echo $this->data['data'][0]['user']['full_name'];?></h4>
-                <?php echo '<h5> @'.$this->data['data'][0]['user']['username'].'</h5>';?>
-                <button type="button" class="btn btn-mini btn-success">Follow</button>
-              </div>
-            </div>
-<br>
-<br>
-	<div class="row">
-		<div class="span11 offset1">
-                        <?php foreach($this->data['data'] as $profileinfo){
-                        	              echo '<div class="span3 well well-small card">';
-                        	                     if($profileinfo['type'] == "video"){
-                        	                     	echo '<video width="260" height="260" controls>'.
-                          	                     	     '<source src="'.$profileinfo['videos']['low_resolution']['url'].'" type="video/mp4">'.
-                          	                     	     'Your browser does not support the video tag.'.
-                          	                     	     '</video>'.
-                        	                     	     '<a href="'.SITE_ROOT.'/view/profile/'.$profileinfo['user']['id'].'">';
-                        	                     }else{
-                        	                     	echo '<a href="'.SITE_ROOT.'/view/profile/'.$profileinfo['user']['id'].'">'.
-                        	                     		 '<img src="'.$profileinfo['images']['standard_resolution']['url'].'" width="260px" class="img-polaroid">';
-                        	                     }
-                                                 
-                                          echo '</a><br/>'.
-												 '<a href="'.SITE_ROOT.'/view/profile/'.$profileinfo['user']['id'].'">'.
-												 	'<h5>@'.$profileinfo['user']['username'].'</h5>'.
-												 '</a>'.
-												 '<h5>Likes: '.$profileinfo['likes']['count'].'</h5>';
-                                          echo (isset($profileinfo['caption'])&&isset($profileinfo['caption']['text'])) ? $profileinfo['caption']['text'] :NULL ;
-                                          echo '</div>';
-                        }?>
-                       
-        </div>
-	</div>
-<pre>
-<?php print_r($this->data['data'][0]);?>
-</pre>
+<div class="container">
+  <div class="media offset1">
+    <a class="pull-left">
+      <img class="media-object" src="<?php echo $this->data['data'][0]['user']['profile_picture'];?>" width="90" height="90">
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading"><?php echo $this->data['data'][0]['user']['full_name'];?></h4>
+      <?php echo '<h5> @'.$this->data['data'][0]['user']['username'].'</h5>';?>
+      <button type="button" class="btn btn-mini btn-success">Follow</button>
+    </div>
+  </div>
+<?= $this->render('elements/pagination.phtml');?>
+<?= $this->render('elements/posts.phtml');?>
+<?= $this->render('elements/pagination.phtml');?>
 </div>
