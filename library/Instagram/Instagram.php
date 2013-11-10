@@ -1,9 +1,5 @@
 <?php
 
-require_once 'Media.php';
-require_once 'Users.php';
-require_once 'Auth.php';
-
 class Instagram_Instagram {
 	
 	protected $client_id;

@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="span11 offset1">
+<?php 
+  $site_root = SITE_ROOT;
+  foreach($this->profiles as $profile){
+  echo <<<EOT
+       <div class="media span3">
+         <a class="pull-left" href = "{$site_root}/view/profile/{$profile['ig_id']}">
+           <img class="media-object" src="{$profile['ig_profile_picture']}" width="90" height="90">
+         </a>
+         <div class="media-body">
+           <a href = "{$site_root}/view/profile/{$profile['ig_id']}">
+             <h4 class="media-heading">{$profile['ig_username']}</h4>
+           </a>
+           <a href = "{$site_root}/view/profile/{$profile['ig_id']}">
+             <h5> @{$profile['ig_username']}</h5>
+           </a>  
+             <button type="button" class="btn btn-mini btn-success">Follow</button>
+         </div>
+       </div>
+EOT;
+  }
+?>
+  </div>
+</div>

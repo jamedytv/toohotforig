@@ -1,0 +1,26 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<?php
+  $site_root = SITE_ROOT;
+  echo <<<EOT
+       <div class="media span3">
+         <a class="pull-left" href = "{$site_root}/view/profile/{$this->data['data'][0]['id']}">
+           <img class="media-object" src="{$this->data['data'][0]['profile_picture']}" width="200" height="200">
+         </a>
+         <div class="media-body">
+           <a href = "{$site_root}/view/profile/{$this->data['data'][0]['id']}">
+             <h4 class="media-heading">{$this->data['data'][0]['username']}</h4>
+           </a>
+           <a href = "{$site_root}/view/profile/{$this->data['data'][0]['id']}">
+             <h5> @{$this->data['data'][0]['username']}</h5>
+           </a>  
+             <button type="button" class="btn btn-mini btn-success">Follow</button>
+         </div>
+       </div>
+  	   {$this->data['data'][0]['bio']}	
+EOT;
+?>

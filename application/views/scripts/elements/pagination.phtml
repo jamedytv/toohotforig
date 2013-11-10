@@ -1,0 +1,19 @@
+<?php 
+if(isset($_GET['max_id'])){
+	$link = str_replace("?max_id=".$_GET['max_id'],"",$_SERVER['REQUEST_URI']);
+}else{
+	$link = $_SERVER['REQUEST_URI'];
+}
+?>
+<br>
+<div class="pagination offset5">
+  <ul>
+    <?php if(end($_SESSION['pagination'][$this->pagename]['previous'])!=null){?>
+    <li><a href="<?= SITE_ROOT.$link."?max_id=".end($_SESSION['pagination'][$this->pagename]['previous'])?>"><<</a></li>
+    <?php }?>
+    <li><a href="<?= SITE_ROOT.$link?>">Newest</a></li>
+    <?php if($_SESSION['pagination'][$this->pagename]['next']!=null){?>
+    <li><a href="<?= SITE_ROOT.$link."?max_id=".$_SESSION['pagination'][$this->pagename]['next']?>">>></a></li>
+    <?php }?>
+  </ul>
+</div>
